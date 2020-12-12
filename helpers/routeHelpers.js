@@ -7,18 +7,18 @@ module.exports = {
 
     validateParams: (schema, name) => {
         return (req, res, next) => {
-            console.log('req.params in validateParams', req.params);
-            console.log(`req['params'][name]`, req['params'][name])
+            // console.log('req.params in validateParams', req.params);
+            // console.log(`req['params'][name]`, req['params'][name])
 
             const result = schema.validate({ param: req['params'][name] });
-            console.log(`result`, result);
+            // console.log(`result`, result);
 
             if (result.error) {
                 // handle error
                 return res.status(400).json(result.error);
             } else {
-                console.log('param ID passed validation')
-                    // handle if no error
+                // console.log('param ID passed validation')
+                // handle if no error
                 if (!req.value) req.value = {};
 
                 if (!req.value['params']) req.value['params'] = {};
@@ -32,7 +32,7 @@ module.exports = {
     validateBody: (schema) => {
         return (req, res, next) => {
             const result = schema.validate(req.body);
-            console.log(`result in validateBody`, result)
+            // console.log(`result in validateBody`, result)
 
             if (result.error) {
                 return res.status(400).json(result.error);

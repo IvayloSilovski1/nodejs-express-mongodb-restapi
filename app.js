@@ -11,6 +11,7 @@ dotenv.config();
 
 // Routes
 const UsersRouter = require('./routes/users');
+const CarsRouter = require('./routes/cars')
 
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.DB_URL, { useUnifiedTopology: true, useNewUrlParser: true })
@@ -47,6 +48,7 @@ app.disable('x-powered-by')
 
 // route middleware
 app.use('/users', UsersRouter);
+app.use('/cars', CarsRouter);
 
 
 // catch 404 Errors and forward the error handler
