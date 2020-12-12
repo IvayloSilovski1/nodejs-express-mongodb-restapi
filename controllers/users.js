@@ -164,7 +164,7 @@ module.exports = {
         // const result = idSchema.validate(req.params)
 
         // create a new car
-        const newCar = new Car(req.body);
+        const newCar = new Car(req.value.body);
         console.log('New Car: ', newCar);
 
         // get user
